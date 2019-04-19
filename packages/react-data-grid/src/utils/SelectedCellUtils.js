@@ -72,6 +72,8 @@ export const isSelectedCellEditable = ({ enableCellSelect, selectedPosition, col
 
 export const isSelectedRangeArea = ({ idx, rowIdx, getSelectedRange }) => {
   const { startCell, cursorCell } = getSelectedRange();
+  if (startCell === undefined || cursorCell === undefined) return false;
+
   const arrIdx = [cursorCell.idx, startCell.idx];
   const arrRowIdx = [cursorCell.rowIdx, startCell.rowIdx];
 
